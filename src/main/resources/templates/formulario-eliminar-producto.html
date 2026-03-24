@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos - Eliminar</title>
+</head>
+<body>
+<h1>Productos - Eliminar</h1>
+<a th:href="@{/producto}">Regresar</a>
+
+<form th:action="@{/producto/eliminar}" method="post">
+    <input type="hidden" name="id" th:value="${producto.id}" />
+
+    <p>Nombre: <br/>
+        <input type="text" th:value="${producto.nombre}" disabled />
+    </p>
+
+    <p>Precio: <br/>
+        <input type="text" th:value="${producto.precio}" disabled />
+    </p>
+
+    <p>Categoría: <br/>
+        <input type="text" th:value="${producto.categoria}" disabled />
+    </p>
+
+    <p><strong>¿Estás seguro de que deseas eliminar este producto?</strong></p>
+    <button type="submit" style="color: white; background-color: red;">Eliminar</button>
+</form>
+</body>
+</html>

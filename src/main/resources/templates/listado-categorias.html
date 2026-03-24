@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categorías</title>
+</head>
+<body>
+
+<h1>Categorías</h1>
+
+<a th:href="@{/}">Regresar</a> |
+<a th:href="@{/categoria/nueva}">Agregar Categoría</a>
+
+<br/><br/>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:if="${#lists.isEmpty(categoria)}">
+        <td colspan="4">No hay categorías registradas</td>
+    </tr>
+
+    <tr th:each="cat : ${categoria}">
+        <td th:text="${cat.id}"></td>
+        <td th:text="${cat.nombre}"></td>
+        <td th:text="${cat.descripcion}"></td>
+        <td>
+            <a th:href="@{/categoria/actualizar/{id}(id=${cat.id})}">Actualizar</a>
+            |
+            <a th:href="@{/categoria/eliminar/{id}(id=${cat.id})}"
+               onclick="return confirm('¿Seguro que deseas eliminar esta categoría?')">
+                Eliminar
+            </a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

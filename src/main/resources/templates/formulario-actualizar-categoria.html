@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categorías - Actualizar</title>
+</head>
+<body>
+<h1>Categorías - Actualizar</h1>
+<a th:href="@{/categoria}">Regresar</a>
+<form th:action="@{/categoria/actualizar}" th:object="${categoria}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <p>Nombre: <br/>
+        <input type="text" th:field="*{nombre}" />
+    </p>
+    <p>Descripción: <br/>
+        <textarea th:field="*{descripcion}"></textarea>
+    </p>
+    <button type="submit">Actualizar</button>
+</form>
+</body>
+</html>
